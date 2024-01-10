@@ -2,6 +2,7 @@ import {Injectable} from "@nestjs/common";
 import {InjectRepository} from "@nestjs/typeorm";
 import {CustomerModel} from "./customer.model";
 import {Repository} from "typeorm";
+import {CustomerDTO} from "./customer.dto";
 
 @Injectable()
 export class CustomerService {
