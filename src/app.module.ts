@@ -20,8 +20,6 @@ import {CustomerModule} from "./customer/customer.module";
             password: 'abc',
             database: 'invoiceapp',
             entities: ['dist/**/*.model.js'],
-            synchronize: false
-        })
             synchronize: true
         }),
     ],
