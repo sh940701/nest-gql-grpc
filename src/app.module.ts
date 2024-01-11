@@ -22,6 +22,7 @@ import {CustomerModule} from "./customer/customer.module";
             entities: ['dist/**/*.model.js'],
             synchronize: true
         }),
+        CustomerModule
     ],
     controllers: [AppController],
     providers: [AppService],
