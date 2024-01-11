@@ -3,11 +3,13 @@ import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {GraphQLModule} from "@nestjs/graphql";
 import {TypeOrmModule} from "@nestjs/typeorm";
+import {ApolloDriver} from "@nestjs/apollo";
 
 @Module({
     imports: [
         GraphQLModule.forRoot({
-            autoSchemaFile: 'schema.gql'
+            autoSchemaFile: 'schema.gql',
+            driver: ApolloDriver
         }),
         TypeOrmModule.forRoot({
             type: 'postgres',
