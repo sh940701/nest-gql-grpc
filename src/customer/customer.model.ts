@@ -1,6 +1,5 @@
 import {Field, ObjectType} from "@nestjs/graphql";
-import {Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
-import {InvoiceModel} from "../invoice/invoice.model";
+import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
 @ObjectType()
 @Entity()
@@ -24,10 +23,6 @@ export class CustomerModel {
     @Field()
     @Column('text')
     address: string
-
-    @Field(type => [InvoiceModel], {nullable: true})
-    @OneToMany(type => InvoiceModel, invoice => invoice.customer)
-    invoices: InvoiceModel[]
 
     @Field()
     @Column()

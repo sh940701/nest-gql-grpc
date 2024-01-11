@@ -1,14 +1,12 @@
-import {Args, Mutation, Parent, Query, ResolveField, Resolver} from "@nestjs/graphql";
+import {Args, Mutation, Query, Resolver} from "@nestjs/graphql";
 import {CustomerModel} from "./customer.model";
 import {Inject} from "@nestjs/common";
-import {InvoiceModel} from "../invoice/invoice.model";
 import {CustomerService} from "./customer.service";
 
 @Resolver(of => CustomerModel)
 export class CustomerResolver {
     constructor(
         @Inject(CustomerService) private customerService: CustomerService,
-        @Inject(InvoiceService) private invoiceService: InvoiceService
     ) {
     }
 
@@ -17,11 +15,6 @@ export class CustomerResolver {
         return await this.customerService.findOne(id)
     }
 
-    @ResolveField(returns => [InvoiceModel])
-    async invoices(@Parent() customer: CustomerModel): Promise<InvoiceModel[]> {
-        const {id} = customer
-        return this.invoiceService.findByCustomer(id)
-    }
 
     @Query(returns => [CustomerModel])
     async customers(): Promise<CustomerModel[]> {
