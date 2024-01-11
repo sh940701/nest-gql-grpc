@@ -16,12 +16,12 @@ export class CustomerModel {
     @Column('text', {nullable: false})
     email: string
 
-    @Field()
-    @Column('varchar', {length: 15})
+    @Field({nullable: true})
+    @Column('varchar', {length: 15, nullable: true})
     phone: string
 
-    @Field()
-    @Column('text')
+    @Field({nullable: true})
+    @Column('text', {nullable: true})
     address: string
 
     @Field()
