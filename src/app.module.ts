@@ -4,6 +4,7 @@ import {AppService} from './app.service';
 import {GraphQLModule} from "@nestjs/graphql";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {ApolloDriver} from "@nestjs/apollo";
+import {CustomerModule} from "./customer/customer.module";
 
 @Module({
     imports: [
@@ -16,11 +17,13 @@ import {ApolloDriver} from "@nestjs/apollo";
             host: 'localhost',
             port: 5432,
             username: 'terin',
-            password: '',
+            password: 'abc',
             database: 'invoiceapp',
             entities: ['dist/**/*.model.js'],
             synchronize: false
         })
+            synchronize: true
+        }),
     ],
     controllers: [AppController],
     providers: [AppService],
