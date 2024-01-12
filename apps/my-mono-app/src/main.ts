@@ -8,7 +8,7 @@ async function bootstrap() {
         transport: Transport.GRPC,
         options: {
             package: 'user',
-            protoPath: join(__dirname, 'user.proto')
+            protoPath: join(__dirname, 'my-mono-app/user.proto')
         }
     });
     await app.listen();
