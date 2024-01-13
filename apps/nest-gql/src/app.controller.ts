@@ -6,8 +6,13 @@ export class AppController {
     constructor(private readonly appService: AppService) {
     }
 
+    @Get('/users')
+    getUsers() {
+        return this.appService.getUsers()
+    }
+
     @Get('/users/:_id')
-    getUser(@Param('_id') id: string): Promise<any> {
+    getUser(@Param('_id') id: string) {
         return this.appService.getUser({id: Number(id)})
     }
 
