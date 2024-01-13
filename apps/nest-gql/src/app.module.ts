@@ -5,6 +5,8 @@ import {GraphQLModule} from "@nestjs/graphql";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {ApolloDriver} from "@nestjs/apollo";
 import {CustomerModule} from "./customer/customer.module";
+import {ClientsModule, Transport} from "@nestjs/microservices";
+import {join} from 'path'
 
 @Module({
     imports: [
@@ -22,6 +24,16 @@ import {CustomerModule} from "./customer/customer.module";
             entities: ['dist/**/*.model.js'],
             synchronize: true
         }),
+        ClientsModule.register([
+            {
+                name: 'USERS_PACKAGE',
+                transport: Transport.GRPC,
+                options: {
+                    package: "users",
+                    protoPath: join(__dirname, 'users/user.proto')
+                }
+            }
+        ]),
         CustomerModule
     ],
     controllers: [AppController],
