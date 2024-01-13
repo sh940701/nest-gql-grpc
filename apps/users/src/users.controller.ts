@@ -11,6 +11,13 @@ export interface User {
     name: string
 }
 
+export interface Empty {
+}
+
+export interface Users {
+    users: User[]
+}
+
 @Controller()
 export class UsersController {
     items = [
