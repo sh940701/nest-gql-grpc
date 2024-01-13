@@ -13,13 +13,13 @@ export interface User {
 
 @Controller()
 export class UsersController {
+    items = [
+        {id: 1, name: 'John'},
+        {id: 2, name: 'Do'}
+    ]
+
     @GrpcMethod('UsersService')
     findOne(data: UserById, metadata?: Metadata, call?: ServerUnaryCall<any, any>): User {
-        const items = [
-            {id: 1, name: 'John'},
-            {id: 2, name: 'Do'}
-        ]
-
-        return items.find(({id}) => id === data.id) as User
+        return this.items.find(({id}) => id === data.id) as User
     }
 }
