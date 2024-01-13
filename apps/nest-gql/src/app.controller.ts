@@ -8,7 +8,6 @@ export class AppController {
 
     @Get('/users/:_id')
     getUser(@Param('_id') id: string): Promise<any> {
-        console.log(id)
         return this.appService.getUser({id: Number(id)})
     }
 
