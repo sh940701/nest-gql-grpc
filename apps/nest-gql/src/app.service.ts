@@ -24,7 +24,7 @@ export class AppService implements OnModuleInit {
         this.usersController = this.client.getService<UsersController>('UsersService')
     }
 
-    async getUser(data: UserById) {
+    getUser(data: UserById) {
         return this.usersController.findOne(data)
     }
 
