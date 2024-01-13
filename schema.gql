@@ -1,0 +1,27 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CustomerModel {
+  id: String!
+  name: String!
+  email: String!
+  phone: String
+  address: String
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  customer(id: String!): CustomerModel!
+  customers: [CustomerModel!]!
+}
+
+type Mutation {
+  createCustomer(name: String!, email: String!, phone: String, address: String): CustomerModel!
+}
