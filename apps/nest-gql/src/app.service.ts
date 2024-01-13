@@ -29,7 +29,7 @@ export class AppService implements OnModuleInit {
     }
 
     getUsers() {
-        return this.usersController.findAll()
+        return this.usersController.findAll({})
     }
 
     getHello() {
