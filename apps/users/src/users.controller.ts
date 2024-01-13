@@ -29,4 +29,9 @@ export class UsersController {
     findOne(data: UserById, metadata?: Metadata, call?: ServerUnaryCall<any, any>): User {
         return this.items.find(({id}) => id === data.id) as User
     }
+
+    @GrpcMethod('UsersService')
+    findAll(data: Empty, metadata?: Metadata, call?: ServerUnaryCall<any, any>): Users {
+        return {users: this.items} as Users
+    }
 }
