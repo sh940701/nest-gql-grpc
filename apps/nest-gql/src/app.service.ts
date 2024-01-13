@@ -28,6 +28,10 @@ export class AppService implements OnModuleInit {
         return this.usersController.findOne(data)
     }
 
+    getUsers() {
+        return this.usersController.findAll()
+    }
+
     getHello() {
         return 'hello, world'
     }
