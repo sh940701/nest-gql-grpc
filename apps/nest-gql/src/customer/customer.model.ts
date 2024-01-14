@@ -1,36 +1,26 @@
 import {Field, ObjectType} from "@nestjs/graphql";
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
+// gql gateway 의 entity 파일에는 graphql 관련 decorator 만 남겨놓음
 @ObjectType()
-@Entity()
-export class CustomerModel {
+export class User {
     @Field()
-    @PrimaryGeneratedColumn('uuid')
     id: string
 
     @Field()
-    @Column({length: 500, nullable: false})
     name: string
 
     @Field()
-    @Column('text', {nullable: false})
     email: string
 
     @Field({nullable: true})
-    @Column('varchar', {length: 15, nullable: true})
     phone: string
 
     @Field({nullable: true})
-    @Column('text', {nullable: true})
     address: string
 
     @Field()
-    @Column()
-    @CreateDateColumn()
     created_at: Date
 
     @Field()
-    @Column()
-    @UpdateDateColumn()
     updated_at: Date
 }
