@@ -10,18 +10,18 @@ export class CustomerResolver {
     ) {
     }
 
-    @Query(returns => CustomerModel)
+    @Query(() => CustomerModel)
     async customer(@Args('id') id: string): Promise<CustomerModel> {
         return await this.customerService.findOne(id)
     }
 
 
-    @Query(returns => [CustomerModel])
+    @Query(() => [CustomerModel])
     async customers(): Promise<CustomerModel[]> {
         return await this.customerService.findAll()
     }
 
-    @Mutation(returns => CustomerModel)
+    @Mutation(() => CustomerModel)
     async createCustomer(
         @Args('name') name: string,
         @Args('email') email: string,
