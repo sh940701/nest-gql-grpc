@@ -3,7 +3,7 @@ import {CustomerModel} from "./customer.model";
 import {Inject} from "@nestjs/common";
 import {CustomerService} from "./customer.service";
 
-@Resolver(of => CustomerModel)
+@Resolver(() => CustomerModel)
 export class CustomerResolver {
     constructor(
         @Inject(CustomerService) private customerService: CustomerService,
