@@ -32,7 +32,6 @@ export class UsersController {
         const users = await this.userRepository.find()
 
         const result = {users}
-        console.log(result)
         return result as unknown as Observable<{ users: UserEntity[] }>
     }
 
