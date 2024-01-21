@@ -6,13 +6,14 @@ import {UserEntity} from "./entities/user.entity";
 @Module({
     imports: [TypeOrmModule.forRoot({
         type: 'postgres',
-        host: 'localhost',
-        port: 5432,
-        username: 'terin',
-        password: 'abc',
-        database: 'invoiceapp',
-        entities: [UserEntity],
-        synchronize: true
+        host: process.env.DB_HOST,
+        port: Number(process.env.DB_PORT),
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
+        synchronize: true,
+        autoLoadEntities: true,
+        logging: true,
     }),
         TypeOrmModule.forFeature([UserEntity])
     ],
