@@ -1,6 +1,4 @@
-import {Inject, Injectable} from "@nestjs/common";
-import {CustomerModel} from "./customer.model";
-import {CustomerDTO} from "./customer.dto";
+import {Inject, Injectable, OnModuleInit} from "@nestjs/common";
 import {UserById, UsersController} from "../../../users/src/users.controller";
 import {ClientGrpc} from "@nestjs/microservices";
 
@@ -27,21 +25,4 @@ export class CustomerService {
         return this.usersController.insertOne(data)
     }
 
-    // constructor(
-    //     @InjectRepository(CustomerModel)
-    //     private customerRepository: Repository<CustomerModel>
-    // ) {
-    // }
-
-    create(details: CustomerDTO): Promise<CustomerModel> {
-        return this.customerRepository.save(details)
-    }
-
-    findAll(): Promise<CustomerModel[]> {
-        return this.customerRepository.find()
-    }
-
-    findOne(id: string): Promise<CustomerModel> {
-        return this.customerRepository.findOne({where: {id}})
-    }
 }
