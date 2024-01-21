@@ -1,7 +1,7 @@
-import {BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
 
 @Entity()
-export class UserEntity extends BaseEntity {
+export class UserEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
@@ -17,11 +17,16 @@ export class UserEntity extends BaseEntity {
     @Column('text', {nullable: true})
     address: string
 
-    @Column()
     @CreateDateColumn()
-    created_at: Date
+    createdAt!: Date
 
-    @Column()
     @UpdateDateColumn()
-    updated_at: Date
+    updatedAt!: Date
+}
+
+export class CreateUserDTO {
+    name: string
+    email: string
+    phone: string
+    address: string
 }

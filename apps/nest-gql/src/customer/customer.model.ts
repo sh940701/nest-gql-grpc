@@ -1,4 +1,4 @@
-import {Field, ObjectType} from "@nestjs/graphql";
+import {Field, InputType, ObjectType} from "@nestjs/graphql";
 
 // gql gateway 의 entity 파일에는 graphql 관련 decorator 만 남겨놓음
 @ObjectType()
@@ -19,8 +19,13 @@ export class User {
     address: string
 
     @Field()
-    created_at: Date
+    createdAt: Date
 
     @Field()
-    updated_at: Date
+    updatedAt: Date
+}
+
+@InputType()
+export class ID {
+
 }
