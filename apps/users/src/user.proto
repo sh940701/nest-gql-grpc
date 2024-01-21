@@ -5,15 +5,28 @@ package users;
 service UsersService {
     rpc FindOne (UserById) returns (User);
     rpc FindAll (Empty) returns (Users);
+    rpc InsertOne (CreateUserDto) returns (User);
 }
 
 message UserById {
-    int32 id = 1;
+    string id = 1;
 }
 
 message User {
-    int32 id = 1;
+    string id = 1;
     string name = 2;
+    string email = 3;
+    string phone = 4;
+    string address = 5;
+    string created_at = 6;
+    string updated_at = 7;
+}
+
+message CreateUserDto {
+    string name = 1;
+    string email = 2;
+    string phone = 3;
+    string address = 4;
 }
 
 message Empty {}
