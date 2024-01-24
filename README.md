@@ -15,7 +15,6 @@ Practice of [Nest-Monorepo](https://docs.nestjs.com/cli/monorepo), [GQL](https:/
 ## Running the app
 
 ```bash
-# development
 $ docker compose up --build
 ```
 
